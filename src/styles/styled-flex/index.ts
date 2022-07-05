@@ -24,4 +24,5 @@ export const StyledFlex = styled.div<StyledFlexProps>`
   gap: ${props => props.gap ?? 0}px;
   flex-flow: ${props => props.direction ?? 'row'} ${props => props.wrap ? 'wrap' : 'nowrap'};
   background-color: ${props => props.backgroundColor ? colors[props.backgroundColor] : 'transparent'};
+  position: relative;
 `

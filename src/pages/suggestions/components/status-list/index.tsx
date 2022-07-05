@@ -39,9 +39,9 @@ export const StatusList = () => {
           <StyledStatus>
             <StyledFlex gap={16} justify="start">
               <StyledBullet fill={status.bullet}/>
-              <StyledText color="darkGray">{status.title}</StyledText>
+              <StyledText color="darkBlueGray">{status.title}</StyledText>
             </StyledFlex>
-            <StyledText as="span" weight={700} color="darkGray">{status.suggestions}</StyledText>
+            <StyledText as="span" weight={700} color="darkBlueGray">{status.suggestions}</StyledText>
           </StyledStatus>
         ))}
       </StyledStatusList>

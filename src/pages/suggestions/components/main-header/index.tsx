@@ -3,6 +3,7 @@ import {StyledFlex} from "../../../../styles/styled-flex";
 import {BulbIcon} from "../../../../assets/icons/BulbIcon";
 import {StyledText} from "../../../../styles/styled-text";
 import {StyledButton} from "../../../../styles/styled-button";
+import {Select} from "../../../../components/select";
 
 export const MainHeader = () => {
   return (
@@ -15,9 +16,12 @@ export const MainHeader = () => {
 
         <StyledFlex gap={4}>
           <StyledText color="whiteGhost2" size={14}>Sort by:</StyledText>
-          <select>
-            <option>Most Upvote</option>
-          </select>
+          <Select options={[
+            'Most Upvotes',
+            'Least Upvotes',
+            'Most Comments',
+            'Least Comments'
+          ]} />
         </StyledFlex>
       </StyledFlex>
 
