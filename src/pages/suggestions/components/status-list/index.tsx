@@ -1,21 +1,25 @@
-import {StyledCard} from "../../../../components/styled-card";
+import {StyledCard} from "../../../../styles/styled-card";
+import {StyledBullet} from "../../../../styles/styled-bullet";
 import styled from "styled-components";
 import {colors} from "../../../../helpers/ color-palette";
+import {StyledText} from "../../../../styles/styled-text";
+import {StyledFlex} from "../../../../styles/styled-flex";
+import {StyledButton} from "../../../../styles/styled-button";
 
 const statusList = [
   {
     title: 'Planned',
-    bullet: colors.secondary.tangerine,
+    bullet: colors.tangerine,
     suggestions: 2
   },
   {
     title: 'In-Progress',
-    bullet: colors.primary.purple,
+    bullet: colors.purple,
     suggestions: 3
   },
   {
     title: 'Live',
-    bullet: colors.secondary.maya,
+    bullet: colors.maya,
     suggestions: 1
   },
 ]
@@ -23,20 +27,22 @@ const statusList = [
 export const StatusList = () => {
   return (
     <StyledSection>
-      <StyledSectionHeader>
-        <StyledSectionTitle>Roadmap</StyledSectionTitle>
-        <StyledLinkButton>View</StyledLinkButton>
-      </StyledSectionHeader>
+      <StyledFlex>
+        <StyledText as="strong" size={18} weight={700} color="navyPurple2">Roadmap</StyledText>
+        <StyledLinkButton>
+          <StyledLinkText as="span" size={13} weight={600} color="ultramarine">View</StyledLinkText>
+        </StyledLinkButton>
+      </StyledFlex>
 
-      <StyledStatusList>
+      <StyledStatusList as="ul" direction="column" wrap>
         {statusList.map((status) => (
-          <StyledStatusItem>
-            <StyledStatusItemGroup>
+          <StyledStatus>
+            <StyledFlex gap={16} justify="start">
               <StyledBullet fill={status.bullet}/>
-              <p>{status.title}</p>
-            </StyledStatusItemGroup>
-            <StyledStatusItemValue>{status.suggestions}</StyledStatusItemValue>
-          </StyledStatusItem>
+              <StyledText color="darkGray">{status.title}</StyledText>
+            </StyledFlex>
+            <StyledText as="span" weight={700} color="darkGray">{status.suggestions}</StyledText>
+          </StyledStatus>
         ))}
       </StyledStatusList>
     </StyledSection>
@@ -47,62 +53,19 @@ const StyledSection = styled(StyledCard)`
   background-color: white;
 `
 
-const StyledSectionHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const StyledStatusList = styled(StyledFlex)`
+  margin-top: 12px;
 `
 
-const StyledSectionTitle = styled.strong`
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 700;
-  color: ${props => props.theme.primary.navyPurple2};
+const StyledStatus = styled(StyledFlex)`
+  width: 100%;
 `
 
-const StyledLinkButton = styled.button`
-  font-size: 13px;
-  line-height: 19px;
-  font-weight: 600;
+const StyledLinkButton = styled(StyledButton)`
+  padding-left: 12px;
+  padding-right: 0;
+`
+
+const StyledLinkText = styled(StyledText)`
   text-decoration: underline;
-
-  border: none;
-  background: transparent;
-  color: ${props => props.theme.secondary.ultramarine};
-`
-
-interface StyledBulletProps {
-  fill: string
-}
-
-const StyledBullet = styled.div<StyledBulletProps>`
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: ${props => props.fill};
-`
-
-const StyledStatusList = styled.ul`
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 8px;
-  margin-top: 24px;
-`
-
-const StyledStatusItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  color: ${props => props.theme.neutral.darkGray};
-`
-
-const StyledStatusItemGroup = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-`
-
-const StyledStatusItemValue = styled.span`
-  font-weight: 700;
 `

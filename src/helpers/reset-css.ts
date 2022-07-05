@@ -23,7 +23,6 @@ export const ResetCss = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
   }
@@ -37,7 +36,7 @@ export const ResetCss = createGlobalStyle`
   body {
     line-height: 1;
     font-family: sans-serif;
-    background-color: ${colors.neutral.darkGray};
+    background-color: ${colors.whiteGhost2};
   }
 
   ol, ul {
@@ -51,7 +50,6 @@ export const ResetCss = createGlobalStyle`
   blockquote:before, blockquote:after,
   q:before, q:after {
     content: '';
-    content: none;
   }
 
   table {
