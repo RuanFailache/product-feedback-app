@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useState } from 'react'
 import { StyledFlex } from '../../styles/styled-flex'
 import { StyledText } from '../../styles/styled-text'
@@ -32,8 +32,7 @@ export function Select({ options }: SelectProps) {
         {isDropdownOpen ? <UpIndicatorIcon /> : <DownIndicatorIcon />}
       </StyledSelectField>
 
-      {isDropdownOpen && (
-        <StyledDropdownList>
+        <StyledDropdownList isDropdownOpen={isDropdownOpen}>
           {options.map((option) => (
             <StyledDropdownItem onClick={() => selectOption(option)}>
               <StyledFlex>
@@ -43,7 +42,6 @@ export function Select({ options }: SelectProps) {
             </StyledDropdownItem>
           ))}
         </StyledDropdownList>
-      )}
     </>
   )
 }
@@ -52,7 +50,11 @@ const StyledSelectField = styled(StyledFlex)`
   cursor: pointer;
 `
 
-const StyledDropdownList = styled.ul`
+interface StyledDropdownListProps {
+  isDropdownOpen: boolean
+}
+
+const StyledDropdownList = styled.ul<StyledDropdownListProps>`
   position: absolute;
   top: 74px;
   left: 0px;
@@ -60,6 +62,9 @@ const StyledDropdownList = styled.ul`
   border-radius: 10px;
   background-color: ${(props) => props.theme.white};
   box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 35%);
+  animation-name: ${props => props.isDropdownOpen ? StyledInAnimation : StyledOutAnimation};
+  animation-duration: .3s;
+  opacity: ${props => props.isDropdownOpen ? 1 : 0};
   z-index: 1;
 `
 
@@ -73,5 +78,24 @@ const StyledDropdownItem = styled.li`
 
   & :hover {
     color: ${(props) => props.theme.purple};
+  }
+`
+
+const StyledInAnimation = keyframes`
+  from {
+    margin-top: -20px;
+  }
+  to {
+    margin-top: 0px;
+  }
+`
+
+const StyledOutAnimation = keyframes`
+  from {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  to {
+    margin-top: -20px;
   }
 `
