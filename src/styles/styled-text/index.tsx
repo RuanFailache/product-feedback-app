@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {colors} from "../../helpers/ color-palette";
+import styled from 'styled-components'
+import { colors } from '../../helpers/ color-palette'
 
 interface StyledTextProps {
   size?: number
@@ -15,8 +15,8 @@ const calculateLineHeight = (props: StyledTextProps) => {
 }
 
 export const StyledText = styled.p<StyledTextProps>`
-  font-size: ${props => props.size ?? 16}px;
-  font-weight: ${props => props.weight ?? 400};
+  font-size: ${(props) => props.size ?? 16}px;
+  font-weight: ${(props) => props.weight ?? 400};
   line-height: ${calculateLineHeight}px;
-  color: ${props => colors[props.color ?? 'white']};
+  color: ${(props) => colors[props.color ?? 'white']};
 `

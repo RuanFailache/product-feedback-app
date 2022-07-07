@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import {colors} from "../../helpers/ color-palette";
+import styled from 'styled-components'
+import { colors } from '../../helpers/ color-palette'
 
 enum FLEX_ALIGN_OPTIONS {
   between = 'space-between',
   center = 'center',
-  start =  'flex-start',
-  end = 'flex-end'
+  start = 'flex-start',
+  end = 'flex-end',
 }
 
 interface StyledFlexProps {
@@ -19,10 +19,13 @@ interface StyledFlexProps {
 
 export const StyledFlex = styled.div<StyledFlexProps>`
   display: flex;
-  justify-content: ${props => FLEX_ALIGN_OPTIONS[props?.justify ?? 'between']};
-  align-items: ${props => FLEX_ALIGN_OPTIONS[props?.align ?? 'center']};
-  gap: ${props => props.gap ?? 0}px;
-  flex-flow: ${props => props.direction ?? 'row'} ${props => props.wrap ? 'wrap' : 'nowrap'};
-  background-color: ${props => props.backgroundColor ? colors[props.backgroundColor] : 'transparent'};
+  justify-content: ${(props) =>
+    FLEX_ALIGN_OPTIONS[props?.justify ?? 'between']};
+  align-items: ${(props) => FLEX_ALIGN_OPTIONS[props?.align ?? 'center']};
+  gap: ${(props) => props.gap ?? 0}px;
+  flex-flow: ${(props) => props.direction ?? 'row'}
+    ${(props) => (props.wrap ? 'wrap' : 'nowrap')};
+  background-color: ${(props) =>
+    props.backgroundColor ? colors[props.backgroundColor] : 'transparent'};
   position: relative;
 `

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {StyledFlex} from "../styled-flex";
+import styled from 'styled-components'
+import { StyledFlex } from '../styled-flex'
 
 export const StyledCard = styled.div`
   padding: 24px;

@@ -1,19 +1,21 @@
-import {SideBanner} from "./components/side-banner";
-import {TagList} from "./components/tag-list";
-import {StatusList} from "./components/status-list";
-import styled from "styled-components";
-import {MainHeader} from "./components/main-header";
+import styled from 'styled-components'
+import { SideBanner } from './components/side-banner'
+import { TagList } from './components/tag-list'
+import { StatusList } from './components/status-list'
+import { MainHeader } from './components/main-header'
+import { CommentList } from './components/comment-list'
 
-export const Suggestions = () => {
+export function Suggestions() {
   return (
     <>
       <SideContainer>
-        <SideBanner/>
-        <TagList/>
-        <StatusList/>
+        <SideBanner />
+        <TagList />
+        <StatusList />
       </SideContainer>
       <MainContainer>
-        <MainHeader/>
+        <MainHeader />
+        <CommentList />
       </MainContainer>
     </>
   )

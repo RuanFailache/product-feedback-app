@@ -1,36 +1,40 @@
-import {StyledCard} from "../../../../styles/styled-card";
-import {StyledBullet} from "../../../../styles/styled-bullet";
-import styled from "styled-components";
-import {colors} from "../../../../helpers/ color-palette";
-import {StyledText} from "../../../../styles/styled-text";
-import {StyledFlex} from "../../../../styles/styled-flex";
-import {StyledButton} from "../../../../styles/styled-button";
+import styled from 'styled-components'
+import { StyledCard } from '../../../../styles/styled-card'
+import { StyledBullet } from '../../../../styles/styled-bullet'
+import { colors } from '../../../../helpers/ color-palette'
+import { StyledText } from '../../../../styles/styled-text'
+import { StyledFlex } from '../../../../styles/styled-flex'
+import { StyledButton } from '../../../../styles/styled-button'
 
 const statusList = [
   {
     title: 'Planned',
     bullet: colors.tangerine,
-    suggestions: 2
+    suggestions: 2,
   },
   {
     title: 'In-Progress',
     bullet: colors.purple,
-    suggestions: 3
+    suggestions: 3,
   },
   {
     title: 'Live',
     bullet: colors.maya,
-    suggestions: 1
+    suggestions: 1,
   },
 ]
 
-export const StatusList = () => {
+export function StatusList() {
   return (
     <StyledSection>
       <StyledFlex>
-        <StyledText as="strong" size={18} weight={700} color="navyPurple2">Roadmap</StyledText>
+        <StyledText as="strong" size={18} weight={700} color="navyPurple2">
+          Roadmap
+        </StyledText>
         <StyledLinkButton>
-          <StyledLinkText as="span" size={13} weight={600} color="ultramarine">View</StyledLinkText>
+          <StyledLinkText as="span" size={13} weight={600} color="ultramarine">
+            View
+          </StyledLinkText>
         </StyledLinkButton>
       </StyledFlex>
 
@@ -38,10 +42,12 @@ export const StatusList = () => {
         {statusList.map((status) => (
           <StyledStatus>
             <StyledFlex gap={16} justify="start">
-              <StyledBullet fill={status.bullet}/>
+              <StyledBullet fill={status.bullet} />
               <StyledText color="darkBlueGray">{status.title}</StyledText>
             </StyledFlex>
-            <StyledText as="span" weight={700} color="darkBlueGray">{status.suggestions}</StyledText>
+            <StyledText as="span" weight={700} color="darkBlueGray">
+              {status.suggestions}
+            </StyledText>
           </StyledStatus>
         ))}
       </StyledStatusList>

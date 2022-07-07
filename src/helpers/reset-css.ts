@@ -1,5 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import {colors} from "./ color-palette";
+import { createGlobalStyle } from 'styled-components'
+import { colors } from './ color-palette'
 
 export const ResetCss = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/

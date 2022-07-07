@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {StyledFlexCard} from "../../../../styles/styled-card";
-import {StyledTag} from "../../../../styles/styled-tag";
+import styled from 'styled-components'
+import { StyledFlexCard } from '../../../../styles/styled-card'
+import { StyledTag } from '../../../../styles/styled-tag'
 
 interface Tag {
   name: string
@@ -34,13 +34,11 @@ const tags: Tag[] = [
   },
 ]
 
-export const TagList = () => {
+export function TagList() {
   return (
-    <StyledTagList as='ul' gap={16} justify="start" wrap>
+    <StyledTagList as="ul" gap={16} justify="start" wrap>
       {tags.map((tag) => (
-        <StyledTag selected={tag.selected}>
-          {tag.name}
-        </StyledTag>
+        <StyledTag selected={tag.selected}>{tag.name}</StyledTag>
       ))}
     </StyledTagList>
   )
@@ -49,5 +47,5 @@ export const TagList = () => {
 const StyledTagList = styled(StyledFlexCard)`
   margin-top: 24px;
   margin-bottom: 24px;
-  background-color: ${props => props.theme.white};
+  background-color: ${(props) => props.theme.white};
 `
