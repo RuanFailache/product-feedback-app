@@ -1,38 +1,33 @@
-import styled from 'styled-components'
-import { SideBanner } from './components/side-banner'
-import { TagList } from './components/tag-list'
-import { StatusList } from './components/status-list'
+import { Suggestion } from '../../entites/suggestion'
+import { CategoryList } from './components/category-list'
 import { MainHeader } from './components/main-header'
-import { CommentList } from './components/comment-list'
+import { NoSuggestions } from './components/no-suggestions'
+import { SideBanner } from './components/side-banner'
+import { StatusList } from './components/status-list'
+import { SuggestionList } from './components/suggestion-list'
+import * as StyledComponents from './styles'
 
-export function Suggestions() {
+const suggestions: Suggestion[] = []
+
+export function SuggestionsPage() {
+  const suggestionPageContent = () => {
+    if (suggestions.length > 0) {
+      return <SuggestionList suggestions={suggestions} />
+    }
+    return <NoSuggestions />
+  }
+
   return (
     <>
-      <SideContainer>
+      <StyledComponents.SideContainer>
         <SideBanner />
-        <TagList />
+        <CategoryList />
         <StatusList />
-      </SideContainer>
-      <MainContainer>
+      </StyledComponents.SideContainer>
+      <StyledComponents.MainContainer>
         <MainHeader />
-        <CommentList />
-      </MainContainer>
+        {suggestionPageContent()}
+      </StyledComponents.MainContainer>
     </>
   )
 }
-
-const PAGE_WIDTH = 1110
-
-const SideContainer = styled.aside`
-  position: fixed;
-  top: 64px;
-  left: calc((100% - ${PAGE_WIDTH}px) / 2);
-  width: ${PAGE_WIDTH * 0.25}px;
-`
-
-const MainContainer = styled.main`
-  position: absolute;
-  top: 64px;
-  left: calc((100% - ${PAGE_WIDTH}px) / 2 + ${PAGE_WIDTH * 0.25 + 30}px);
-  width: ${PAGE_WIDTH * 0.75 - 30}px;
-`

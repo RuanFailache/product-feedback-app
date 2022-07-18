@@ -1,10 +1,8 @@
-import styled from 'styled-components'
-import { StyledCard } from '../../../../styles/styled-card'
-import { StyledBullet } from '../../../../styles/styled-bullet'
 import { colors } from '../../../../helpers/ color-palette'
-import { StyledText } from '../../../../styles/styled-text'
+import { StyledBullet } from '../../../../styles/styled-bullet'
 import { StyledFlex } from '../../../../styles/styled-flex'
-import { StyledButton } from '../../../../styles/styled-button'
+import { StyledText } from '../../../../styles/styled-text'
+import * as StyledComponents from './styles'
 
 const statusList = [
   {
@@ -26,21 +24,26 @@ const statusList = [
 
 export function StatusList() {
   return (
-    <StyledSection>
+    <StyledComponents.StyledSection>
       <StyledFlex>
         <StyledText as="strong" size={18} weight={700} color="navyPurple2">
           Roadmap
         </StyledText>
-        <StyledLinkButton>
-          <StyledLinkText as="span" size={13} weight={600} color="ultramarine">
+        <StyledComponents.StyledLinkButton>
+          <StyledComponents.StyledLinkText
+            as="span"
+            size={13}
+            weight={600}
+            color="ultramarine"
+          >
             View
-          </StyledLinkText>
-        </StyledLinkButton>
+          </StyledComponents.StyledLinkText>
+        </StyledComponents.StyledLinkButton>
       </StyledFlex>
 
-      <StyledStatusList as="ul" direction="column" wrap>
+      <StyledComponents.StyledStatusList as="ul" direction="column" wrap>
         {statusList.map((status) => (
-          <StyledStatus>
+          <StyledComponents.StyledStatus key={status.title}>
             <StyledFlex gap={16} justify="start">
               <StyledBullet fill={status.bullet} />
               <StyledText color="darkBlueGray">{status.title}</StyledText>
@@ -48,30 +51,9 @@ export function StatusList() {
             <StyledText as="span" weight={700} color="darkBlueGray">
               {status.suggestions}
             </StyledText>
-          </StyledStatus>
+          </StyledComponents.StyledStatus>
         ))}
-      </StyledStatusList>
-    </StyledSection>
+      </StyledComponents.StyledStatusList>
+    </StyledComponents.StyledSection>
   )
 }
-
-const StyledSection = styled(StyledCard)`
-  background-color: white;
-`
-
-const StyledStatusList = styled(StyledFlex)`
-  margin-top: 12px;
-`
-
-const StyledStatus = styled(StyledFlex)`
-  width: 100%;
-`
-
-const StyledLinkButton = styled(StyledButton)`
-  padding-left: 12px;
-  padding-right: 0;
-`
-
-const StyledLinkText = styled(StyledText)`
-  text-decoration: underline;
-`

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../helpers/ color-palette'
 
+// eslint-disable-next-line no-shadow
 enum FLEX_ALIGN_OPTIONS {
   between = 'space-between',
   center = 'center',

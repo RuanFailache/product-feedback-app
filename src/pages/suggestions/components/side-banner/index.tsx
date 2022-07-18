@@ -2,6 +2,14 @@ import styled from 'styled-components'
 import { StyledCard } from '../../../../styles/styled-card'
 import { StyledText } from '../../../../styles/styled-text'
 
+const StyledBannerContainer = styled(StyledCard)`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: end;
+  height: 128px;
+  background: linear-gradient(-135deg, #e84d70, #a337f6, #28a7ed);
+`
+
 export function SideBanner() {
   return (
     <StyledBannerContainer as="header">
@@ -14,11 +22,3 @@ export function SideBanner() {
     </StyledBannerContainer>
   )
 }
-
-const StyledBannerContainer = styled(StyledCard)`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: end;
-  height: 128px;
-  background: linear-gradient(-135deg, #e84d70, #a337f6, #28a7ed);
-`

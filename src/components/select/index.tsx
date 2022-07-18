@@ -1,10 +1,10 @@
-import styled, { keyframes } from 'styled-components'
 import { useState } from 'react'
+import { CheckIcon } from '../../assets/icons/CheckIcon'
+import { DownIndicatorIcon } from '../../assets/icons/DowIndicatorIcon'
+import { UpIndicatorIcon } from '../../assets/icons/UpIndicatorIcon'
 import { StyledFlex } from '../../styles/styled-flex'
 import { StyledText } from '../../styles/styled-text'
-import { CheckIcon } from '../../assets/icons/CheckIcon'
-import { UpIndicatorIcon } from '../../assets/icons/UpIndicatorIcon'
-import { DownIndicatorIcon } from '../../assets/icons/DowIndicatorIcon'
+import * as StyledComponents from './styles'
 
 interface SelectProps {
   options: string[]
@@ -21,7 +21,7 @@ export function Select({ options }: SelectProps) {
 
   return (
     <>
-      <StyledSelectField
+      <StyledComponents.StyledSelectField
         gap={4}
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
@@ -30,72 +30,21 @@ export function Select({ options }: SelectProps) {
         </StyledText>
 
         {isDropdownOpen ? <UpIndicatorIcon /> : <DownIndicatorIcon />}
-      </StyledSelectField>
+      </StyledComponents.StyledSelectField>
 
-        <StyledDropdownList isDropdownOpen={isDropdownOpen}>
-          {options.map((option) => (
-            <StyledDropdownItem onClick={() => selectOption(option)}>
-              <StyledFlex>
-                <StyledText color="darkBlueGray">{option}</StyledText>
-                {option === selectedOption && <CheckIcon />}
-              </StyledFlex>
-            </StyledDropdownItem>
-          ))}
-        </StyledDropdownList>
+      <StyledComponents.StyledDropdownList isDropdownOpen={isDropdownOpen}>
+        {options.map((option) => (
+          <StyledComponents.StyledDropdownItem
+            key={option}
+            onClick={() => selectOption(option)}
+          >
+            <StyledFlex>
+              <StyledText color="darkBlueGray">{option}</StyledText>
+              {option === selectedOption && <CheckIcon />}
+            </StyledFlex>
+          </StyledComponents.StyledDropdownItem>
+        ))}
+      </StyledComponents.StyledDropdownList>
     </>
   )
 }
-
-const StyledSelectField = styled(StyledFlex)`
-  cursor: pointer;
-`
-
-interface StyledDropdownListProps {
-  isDropdownOpen: boolean
-}
-
-const StyledDropdownList = styled.ul<StyledDropdownListProps>`
-  position: absolute;
-  top: 74px;
-  left: 0px;
-  width: 255px;
-  border-radius: 10px;
-  background-color: ${(props) => props.theme.white};
-  box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 35%);
-  animation-name: ${props => props.isDropdownOpen ? StyledInAnimation : StyledOutAnimation};
-  animation-duration: .3s;
-  opacity: ${props => props.isDropdownOpen ? 1 : 0};
-  z-index: 1;
-`
-
-const StyledDropdownItem = styled.li`
-  padding: 12px 24px;
-  cursor: pointer;
-
-  & + li {
-    border-top: solid 1px ${(props) => props.theme.whiteGhost1};
-  }
-
-  & :hover {
-    color: ${(props) => props.theme.purple};
-  }
-`
-
-const StyledInAnimation = keyframes`
-  from {
-    margin-top: -20px;
-  }
-  to {
-    margin-top: 0px;
-  }
-`
-
-const StyledOutAnimation = keyframes`
-  from {
-    opacity: 1;
-    margin-top: 0px;
-  }
-  to {
-    margin-top: -20px;
-  }
-`

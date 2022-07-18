@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-interface StyledTagProps {
+interface StyledCategoryProps {
   selected?: boolean
 }
 
-export const StyledTag = styled.li<StyledTagProps>`
+export const StyledCategory = styled.li<StyledCategoryProps>`
   width: fit-content;
   padding: 8px 16px;
   border-radius: 10px;

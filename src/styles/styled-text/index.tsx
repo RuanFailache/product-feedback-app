@@ -6,6 +6,7 @@ interface StyledTextProps {
   lineHeight?: number
   weight?: number
   color?: keyof typeof colors
+  centered?: boolean
 }
 
 const calculateLineHeight = (props: StyledTextProps) => {
@@ -19,4 +20,5 @@ export const StyledText = styled.p<StyledTextProps>`
   font-weight: ${(props) => props.weight ?? 400};
   line-height: ${calculateLineHeight}px;
   color: ${(props) => colors[props.color ?? 'white']};
+  text-align: ${(props) => (props.centered ? 'center' : 'normal')};
 `
