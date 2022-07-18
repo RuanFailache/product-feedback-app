@@ -16,10 +16,12 @@ interface StyledFlexProps {
   direction?: 'row' | 'column'
   wrap?: boolean
   backgroundColor?: keyof typeof colors
+  fullWidth?: boolean
 }
 
 export const StyledFlex = styled.div<StyledFlexProps>`
   display: flex;
+  width: ${(props) => (props.fullWidth ? '100%' : 'fit-content')};
   justify-content: ${(props) =>
     FLEX_ALIGN_OPTIONS[props?.justify ?? 'between']};
   align-items: ${(props) => FLEX_ALIGN_OPTIONS[props?.align ?? 'center']};

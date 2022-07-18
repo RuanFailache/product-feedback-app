@@ -11,4 +11,5 @@ export const colors = {
   whiteGhost2: '#F7F8FD',
   darkBlueGray: '#647196',
   softGray: '#979797',
+  softBlueGray: '#8C92B3',
 }

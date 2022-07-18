@@ -1,4 +1,4 @@
-import { Suggestion } from '../../entites/suggestion'
+import { Suggestion } from '~/entities/suggestion'
 import { CategoryList } from './components/category-list'
 import { MainHeader } from './components/main-header'
 import { NoSuggestions } from './components/no-suggestions'

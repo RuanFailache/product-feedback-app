@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { StyledFlexCard } from '../../../../styles/styled-card'
-import { StyledCategory } from '../../../../styles/styled-tag'
+import { StyledFlexCard } from '~/styles/styled-card'
+import { StyledCategory } from '~/styles/styled-tag'
 
 interface Tag {
   name: string

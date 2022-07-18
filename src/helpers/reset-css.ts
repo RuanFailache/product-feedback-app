@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import { colors } from './ color-palette'
 
+export const PAGE_WIDTH = 1110
+
 export const ResetCss = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
      v2.0 | 20110126

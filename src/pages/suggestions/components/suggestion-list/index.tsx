@@ -1,5 +1,5 @@
-import { SuggestionCard } from '../../../../components/suggestion-card'
-import { Suggestion } from '../../../../entites/suggestion'
+import { SuggestionCard } from '~/components/suggestion-card'
+import { Suggestion } from '~/entities/suggestion'
 import { StyledSuggetionList } from './styles'
 
 interface SuggestionListProps {

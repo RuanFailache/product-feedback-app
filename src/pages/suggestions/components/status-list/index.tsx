@@ -1,7 +1,7 @@
-import { colors } from '../../../../helpers/ color-palette'
-import { StyledBullet } from '../../../../styles/styled-bullet'
-import { StyledFlex } from '../../../../styles/styled-flex'
-import { StyledText } from '../../../../styles/styled-text'
+import { colors } from '~/helpers/ color-palette'
+import { StyledBullet } from '~/styles/styled-bullet'
+import { StyledFlex } from '~/styles/styled-flex'
+import { StyledText } from '~/styles/styled-text'
 import * as StyledComponents from './styles'
 
 const statusList = [

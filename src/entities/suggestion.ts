@@ -1,9 +1,11 @@
+import { Comment } from './comment'
+
 export interface Suggestion {
   id: number
-  upvotes: number
   title: string
-  status: string
   category: string
+  upvotes: number
+  status: string
   description: string
-  comments: Comment[]
+  comments?: Comment[]
 }

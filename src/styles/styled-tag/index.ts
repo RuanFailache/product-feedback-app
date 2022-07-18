@@ -11,6 +11,7 @@ export const StyledCategory = styled.li<StyledCategoryProps>`
   font-size: 13px;
   line-height: 19px;
   font-weight: 600;
+  text-transform: capitalize;
 
   background-color: ${(props) =>
     props.selected ? props.theme.ultramarine : props.theme.whiteGhost1};

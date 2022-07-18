@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { StyledCard } from '../../../../styles/styled-card'
-import { StyledText } from '../../../../styles/styled-text'
+import { StyledCard } from '~/styles/styled-card'
+import { StyledText } from '~/styles/styled-text'
 
 const StyledBannerContainer = styled(StyledCard)`
   display: flex;

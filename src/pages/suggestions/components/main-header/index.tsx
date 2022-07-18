@@ -1,9 +1,9 @@
-import { StyledFlexCard } from '../../../../styles/styled-card'
-import { StyledFlex } from '../../../../styles/styled-flex'
-import { BulbIcon } from '../../../../assets/icons/BulbIcon'
-import { StyledText } from '../../../../styles/styled-text'
-import { StyledButton } from '../../../../styles/styled-button'
-import { Select } from '../../../../components/select'
+import { BulbIcon } from '~/assets/icons/BulbIcon'
+import { Select } from '~/components/select'
+import { StyledButton } from '~/styles/styled-button'
+import { StyledFlexCard } from '~/styles/styled-card'
+import { StyledFlex } from '~/styles/styled-flex'
+import { StyledText } from '~/styles/styled-text'
 
 export function MainHeader() {
   return (

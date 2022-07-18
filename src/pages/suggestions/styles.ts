@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-
-const PAGE_WIDTH = 1110
+import { PAGE_WIDTH } from '~/helpers/reset-css'
 
 export const SideContainer = styled.aside`
   position: fixed;

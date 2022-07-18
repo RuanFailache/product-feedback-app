@@ -1,6 +1,7 @@
+import { useCallback, useState } from 'react'
 import { BalloonIcon } from '../../assets/icons/BalloonIcon'
 import { UpIndicatorIcon } from '../../assets/icons/UpIndicatorIcon'
-import { Suggestion } from '../../entites/suggestion'
+import { Suggestion } from '../../entities/suggestion'
 import { StyledFlex } from '../../styles/styled-flex'
 import { StyledCategory } from '../../styles/styled-tag'
 import { StyledText } from '../../styles/styled-text'
@@ -11,15 +12,24 @@ interface SuggestionCardProps {
 }
 
 export function SuggestionCard({ suggestion }: SuggestionCardProps) {
+  const [isUpvoted, setIsUpvoted] = useState(false)
+
+  const handleUpvoteClick = useCallback(() => {
+    setIsUpvoted((prevState) => !prevState)
+  }, [isUpvoted])
+
   return (
     <StyledComponents.StyledSuggestion
       key={suggestion.id}
       gap={40}
       backgroundColor="white"
     >
-      <StyledComponents.StyledUpvoteButton backgroundColor="whiteGhost1">
-        <UpIndicatorIcon color="ultramarine" />
-        <StyledText color="navyPurple1">112</StyledText>
+      <StyledComponents.StyledUpvoteButton
+        onClick={handleUpvoteClick}
+        backgroundColor={isUpvoted ? 'ultramarine' : 'whiteGhost1'}
+      >
+        <UpIndicatorIcon color={isUpvoted ? 'white' : 'ultramarine'} />
+        <StyledText color={isUpvoted ? 'white' : 'navyPurple1'}>112</StyledText>
       </StyledComponents.StyledUpvoteButton>
       <StyledComponents.StyledSuggestionContainer>
         <StyledText size={18} color="navyPurple1" weight={700}>
@@ -33,7 +43,7 @@ export function SuggestionCard({ suggestion }: SuggestionCardProps) {
       <StyledFlex gap={8}>
         <BalloonIcon />
         <StyledText color="navyPurple1" weight={700}>
-          {suggestion.comments.length}
+          {suggestion.comments?.length ?? 0}
         </StyledText>
       </StyledFlex>
     </StyledComponents.StyledSuggestion>

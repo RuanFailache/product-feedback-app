@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { NoSuggestionsIcon } from '../../../../assets/icons/NoSuggestionsIcon'
-import { StyledButton } from '../../../../styles/styled-button'
-import { StyledCard } from '../../../../styles/styled-card'
-import { StyledFlex } from '../../../../styles/styled-flex'
-import { StyledText } from '../../../../styles/styled-text'
+import { NoSuggestionsIcon } from '~/assets/icons/NoSuggestionsIcon'
+import { StyledButton } from '~/styles/styled-button'
+import { StyledCard } from '~/styles/styled-card'
+import { StyledFlex } from '~/styles/styled-flex'
+import { StyledText } from '~/styles/styled-text'
 
 const FULL_HEIGHT_CONTAINER = 600
 
