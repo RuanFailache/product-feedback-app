@@ -10,15 +10,15 @@
 		"lint": "ng lint"
 	},
 	"private": true,
-	"lint-staged": {
-		"*": "prettier --write",
-		"*.ts": "eslint --fix"
-	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "npx lint-staged",
 			"pre-push": "npm test"
 		}
+	},
+	"lint-staged": {
+		"*": "prettier --write",
+		"*.ts": "eslint --fix"
 	},
 	"dependencies": {
 		"@angular/animations": "^17.0.0",
