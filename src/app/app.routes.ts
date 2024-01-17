@@ -1,3 +1,14 @@
-import { Routes } from '@angular/router';
+import { Routes } from "@angular/router";
 
-export const routes: Routes = [];
+import { NotFoundComponent } from "@shared/pages/not-found/not-found.component";
+
+export const routes: Routes = [
+	{
+		path: "feedback",
+		loadChildren: () => import("./modules/feedback/feedback.module").then((m) => m.FeedbackModule),
+	},
+	{
+		path: "**",
+		component: NotFoundComponent,
+	},
+];

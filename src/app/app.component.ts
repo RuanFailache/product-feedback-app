@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+
+import { SharedModule } from "@shared/shared.module";
+
+import { FeedbackModule } from "@modules/feedback/feedback.module";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+	selector: "app-root",
+	standalone: true,
+	imports: [CommonModule, RouterOutlet, SharedModule, FeedbackModule],
+	templateUrl: "./app.component.html",
+	styleUrl: "./app.component.sass",
 })
 export class AppComponent {
-  title = 'product-feedback-app';
+	title = "product-feedback-app";
 }
