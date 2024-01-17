@@ -10,9 +10,14 @@
 		"lint": "ng lint"
 	},
 	"private": true,
+	"lint-staged": {
+		"*": "prettier --write",
+		"*.ts": "eslint --fix"
+	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npx prettier --write && npm lint && npm test"
+			"pre-commit": "npx lint-staged",
+			"pre-push": "npm test"
 		}
 	},
 	"dependencies": {
