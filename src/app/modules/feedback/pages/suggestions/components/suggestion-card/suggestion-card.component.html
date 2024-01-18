@@ -1,19 +1,19 @@
 <div class="card">
 	<div class="content">
-		<strong class="title">Add tags for solutions</strong>
-		<p class="description">Easier to search for solutions based on a specific stack</p>
-		<span class="badge">Enhancement</span>
+		<strong class="title">{{ data.title }}</strong>
+		<p class="description">{{ data.description }}</p>
+		<span class="badge">{{ data.tag }}</span>
 	</div>
 
 	<div class="footer">
 		<div class="chip">
 			<img alt="Upvote" height="7" ngSrc="assets/svg/chevron-up.svg" width="9" />
-			<span>112</span>
+			<span>{{ data.upvote }}</span>
 		</div>
 
 		<div class="comments">
 			<img alt="Comments" height="16" ngSrc="assets/svg/comment.svg" width="18" />
-			<span>2</span>
+			<span>{{ data.comments }}</span>
 		</div>
 	</div>
 </div>

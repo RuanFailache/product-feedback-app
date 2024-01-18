@@ -1,5 +1,13 @@
 import { NgOptimizedImage } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+
+export interface SuggestionCardData {
+	title: string;
+	description: string;
+	tag: string;
+	upvote: number;
+	comments: number;
+}
 
 @Component({
 	selector: "app-suggestion-card",
@@ -8,4 +16,6 @@ import { Component } from "@angular/core";
 	standalone: true,
 	imports: [NgOptimizedImage],
 })
-export class SuggestionCardComponent {}
+export class SuggestionCardComponent {
+	@Input() data: SuggestionCardData;
+}

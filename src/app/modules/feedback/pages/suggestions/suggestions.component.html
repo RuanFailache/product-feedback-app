@@ -21,7 +21,7 @@
 		@if (cards.length > 0) {
 			<div class="cards">
 				@for (card of cards; track $index) {
-					<app-suggestion-card />
+					<app-suggestion-card [data]="card" />
 				}
 			</div>
 		} @else {
