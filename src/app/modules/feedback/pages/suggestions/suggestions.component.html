@@ -18,6 +18,14 @@
 	</div>
 
 	<div class="content">
-		<app-empty-suggestions />
+		@if (cards.length > 0) {
+			<div class="cards">
+				@for (card of cards; track $index) {
+					<app-suggestion-card />
+				}
+			</div>
+		} @else {
+			<app-empty-suggestions />
+		}
 	</div>
 </div>
