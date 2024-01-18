@@ -14,10 +14,8 @@
 	},
 	"private": true,
 	"lint-staged": {
-		"src/**/*": "prettier --write",
-		"cypress/**/*": "prettier --write",
-		"src/**/*.ts": "eslint --fix",
-		"cypress/**/*.ts": "eslint --fix"
+		"*.{html,ts}": "prettier --write",
+		"*.ts": "eslint --fix"
 	},
 	"dependencies": {
 		"@angular/animations": "^17.0.0",
