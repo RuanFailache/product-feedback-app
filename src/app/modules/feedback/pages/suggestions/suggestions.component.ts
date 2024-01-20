@@ -3,15 +3,15 @@ import { Component } from "@angular/core";
 
 import { SharedModule } from "@shared/shared.module";
 
-import { EmptySuggestionsComponent } from "./components/empty-suggestions/empty-suggestions.component";
-import { SuggestionCardComponent, SuggestionCardData } from "./components/suggestion-card/suggestion-card.component";
+import { SuggestionCardData } from "./components/suggestion-card/suggestion-card.component";
+import { SuggestionsModule } from "./suggestions.module";
 
 @Component({
 	selector: "app-suggestions",
-	standalone: true,
-	imports: [NgOptimizedImage, EmptySuggestionsComponent, SharedModule, SuggestionCardComponent],
 	templateUrl: "./suggestions.component.html",
 	styleUrl: "./suggestions.component.sass",
+	standalone: true,
+	imports: [NgOptimizedImage, SharedModule, SuggestionsModule],
 })
 export class SuggestionsComponent {
 	cards: SuggestionCardData[] = new Array<SuggestionCardData>(8).fill({
