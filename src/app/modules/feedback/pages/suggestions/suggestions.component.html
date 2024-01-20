@@ -9,10 +9,12 @@
 	</header>
 
 	<div class="form-options">
-		<div>
-			<span>Sort by: </span>
-			<strong>Most Upvote</strong>
-		</div>
+		<app-dropdown-menu
+			(selectOption)="onChangeSuggestionsOrderBy($event)"
+			[options]="orderOptions"
+			[value]="orderBy"
+			label="Sort by"
+		></app-dropdown-menu>
 
 		<app-button>+ Add Feedback</app-button>
 	</div>

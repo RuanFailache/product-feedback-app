@@ -1,0 +1,25 @@
+<div class="wrapper">
+	<div (click)="onToggle()" (keydown.enter)="onToggle()" class="label" tabindex="0">
+		@if (label) {
+			<span>{{ label }} : </span>
+		}
+		<span class="value">{{ selectedOptionText }}</span>
+	</div>
+
+	@if (isActive) {
+		<div class="dropdown">
+			<div class="options">
+				@for (option of options; track $index) {
+					<div
+						(click)="onSelectOption(option)"
+						(keydown.enter)="onSelectOption(option)"
+						class="option"
+						tabindex="0"
+					>
+						{{ option.label }}
+					</div>
+				}
+			</div>
+		</div>
+	}
+</div>

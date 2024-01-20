@@ -1,12 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-export interface SuggestionCardData {
-	title: string;
-	description: string;
-	tag: string;
-	upvote: number;
-	comments: number;
-}
+import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
 
 @Component({
 	selector: "app-suggestion-card",
@@ -14,5 +8,5 @@ export interface SuggestionCardData {
 	styleUrl: "./suggestion-card.component.sass",
 })
 export class SuggestionCardComponent {
-	@Input() data: SuggestionCardData;
+	@Input() data: SuggestionCard;
 }

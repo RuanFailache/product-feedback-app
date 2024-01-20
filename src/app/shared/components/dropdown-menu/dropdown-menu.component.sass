@@ -1,0 +1,36 @@
+.wrapper
+	position: relative
+
+.label
+	font-size: 14px
+	line-height: normal
+	color: #F2F4FE
+	cursor: pointer
+
+.value
+	font-weight: 700
+	opacity: .75
+
+.dropdown
+	position: absolute
+	top: calc(100% + 16px)
+
+	width: 255px
+	border-radius: 10px
+	background-color: #FFFFFF
+	box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 0.35)
+	z-index: 1
+
+.option
+	padding: 12px 24px
+	cursor: pointer
+
+	font-size: 16px
+	line-height: normal
+	color: #647196
+
+	& + &
+		border-top: solid 1px rgba(58, 67, 116, .15)
+
+	&:hover
+		color: #AD1FEA
