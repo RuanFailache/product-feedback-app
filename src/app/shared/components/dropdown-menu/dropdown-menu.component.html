@@ -17,6 +17,9 @@
 						tabindex="0"
 					>
 						{{ option.label }}
+						@if (option.value === selectedOption.value) {
+							<svg-icon key="check" size="sm"></svg-icon>
+						}
 					</div>
 				}
 			</div>
