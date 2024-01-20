@@ -1,24 +1,18 @@
-import { NgOptimizedImage } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 
-import { DropdownItem } from "@shared/components/dropdown-menu/dropdown-menu.component";
-import { SharedModule } from "@shared/shared.module";
+import { DropdownItem } from "@shared/models/dropdown-item";
 
-import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
+import { SuggestionCard } from "../../models/SuggestionCard";
 import {
 	OrderSuggestionBy,
 	OrderSuggestionByService,
 	ValueOfOrderSuggestionBy,
-} from "@modules/feedback/pages/suggestions/services/order-suggestion-by/order-suggestion-by.service";
-
-import { SuggestionsModule } from "./suggestions.module";
+} from "../../services/order-suggestion-by/order-suggestion-by.service";
 
 @Component({
 	selector: "app-suggestions",
 	templateUrl: "./suggestions.component.html",
 	styleUrl: "./suggestions.component.sass",
-	standalone: true,
-	imports: [NgOptimizedImage, SharedModule, SuggestionsModule],
 })
 export class SuggestionsComponent implements OnInit {
 	mockedCards: SuggestionCard[] = new Array(8).fill("").map(() => ({

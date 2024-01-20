@@ -1,9 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
-export interface DropdownItem<Value> {
-	label: string;
-	value: Value;
-}
+import { DropdownItem } from "@shared/models/dropdown-item";
 
 @Component({
 	selector: "app-dropdown-menu",
