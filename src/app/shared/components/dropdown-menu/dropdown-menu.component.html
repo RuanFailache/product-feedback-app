@@ -3,7 +3,10 @@
 		@if (label) {
 			<span>{{ label }} : </span>
 		}
-		<span class="value">{{ selectedOptionText }}</span>
+		<div class="value-wrapper">
+			<span class="value">{{ selectedOptionText }}</span>
+			<svg-icon [class]="isActive ? 'active' : ''" class="icon" key="chevron-up" size="xs"></svg-icon>
+		</div>
 	</div>
 
 	@if (isActive) {

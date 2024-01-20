@@ -7,9 +7,20 @@
 	color: #F2F4FE
 	cursor: pointer
 
-.value
-	font-weight: 700
-	opacity: .75
+.value-wrapper
+	display: inline-flex
+	align-items: center
+	gap: 8px
+
+	.value
+		font-weight: 700
+
+	.icon
+		transition: 300ms
+		transform: rotate(180deg)
+
+		&.active
+			transform: rotate(0deg)
 
 .dropdown
 	position: absolute
