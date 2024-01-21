@@ -1,56 +1,94 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { DropdownItem } from "@shared/models/dropdown-item";
 
+import { OrderSuggestionBy } from "@modules/feedback/enums/order-suggestion-by";
+
+import { RoadmapListItem } from "../../models/roadmap-list-item";
 import { SuggestionCard } from "../../models/suggestion-card";
-import {
-	OrderSuggestionBy,
-	OrderSuggestionByService,
-	ValueOfOrderSuggestionBy,
-} from "../../services/order-suggestion-by/order-suggestion-by.service";
+
+function randomInt(number: number) {
+	return Math.floor(Math.random() * number);
+}
+
+const ALL_SUGGESTIONS_FILTERED = "All";
 
 @Component({
 	selector: "app-suggestions",
 	templateUrl: "./suggestions.component.html",
 	styleUrl: "./suggestions.component.sass",
 })
-export class SuggestionsComponent implements OnInit {
-	mockedCards: SuggestionCard[] = new Array(0).fill("").map(() => ({
+export class SuggestionsComponent {
+	statusList: RoadmapListItem[] = [
+		{ color: "#F49F85", label: "Planned", amount: 2 },
+		{ color: "#AD1FEA", label: "In-Progress", amount: 3 },
+		{ color: "#62BCFA", label: "Live", amount: 1 },
+	];
+
+	mockedTags: string[] = ["UI", "UX", "Enhancement", "Bug", "Feature"];
+
+	mockedCards: SuggestionCard[] = new Array(200).fill("").map(() => ({
 		title: "Add tags for solutions",
 		description: "Easier to search for solutions based on a specific stack",
-		tag: "Enhancement",
-		upvotes: Math.ceil(Math.random() * 1000),
-		comments: Math.ceil(Math.random() * 100),
+		tag: this.mockedTags[randomInt(5)],
+		upvotes: randomInt(1000),
+		comments: randomInt(100),
 	}));
 
-	orderBy: ValueOfOrderSuggestionBy;
+	orderBy: ValueOf<typeof OrderSuggestionBy> = OrderSuggestionBy.MOST_UPVOTES;
 
-	isDrawerActive = false;
+	isDrawerActive: boolean = false;
 
-	constructor(private orderSuggestionsByService: OrderSuggestionByService) {}
+	selectedTag: string = ALL_SUGGESTIONS_FILTERED;
 
-	get orderOptions(): DropdownItem<ValueOfOrderSuggestionBy>[] {
+	get orderOptions(): DropdownItem<ValueOf<typeof OrderSuggestionBy>>[] {
 		return Object.values(OrderSuggestionBy).map((value) => ({
 			label: value,
 			value,
 		}));
 	}
 
+	get tags() {
+		return [ALL_SUGGESTIONS_FILTERED, ...this.mockedTags];
+	}
+
 	get cards() {
-		return this.orderSuggestionsByService.sort(this.mockedCards);
+		const cards = this.#filterSuggestionsByTag(this.mockedCards);
+		return this.#sortSuggestionsByOrder(cards);
 	}
 
-	ngOnInit(): void {
-		this.orderSuggestionsByService.getOrderBy().subscribe((orderBy) => {
-			this.orderBy = orderBy;
-		});
-	}
-
-	onChangeSuggestionsOrderBy(orderBy: ValueOfOrderSuggestionBy) {
-		this.orderSuggestionsByService.setOrderBy(orderBy);
+	onChangeSuggestionsOrderBy(orderBy: ValueOf<typeof OrderSuggestionBy>) {
+		this.orderBy = orderBy;
 	}
 
 	onToggleDrawer() {
 		this.isDrawerActive = !this.isDrawerActive;
+	}
+
+	onChangeSelectedTag(tag: string) {
+		this.selectedTag = tag;
+	}
+
+	#filterSuggestionsByTag(suggestions: SuggestionCard[]) {
+		if (this.selectedTag === ALL_SUGGESTIONS_FILTERED) return suggestions;
+		return suggestions.filter((card) => card.tag === this.selectedTag);
+	}
+
+	#sortSuggestionsByOrder(suggestions: SuggestionCard[]) {
+		return suggestions.sort((previous, current) => {
+			switch (this.orderBy) {
+				case OrderSuggestionBy.LEAST_COMMENTS:
+					return previous.comments - current.comments;
+
+				case OrderSuggestionBy.LEAST_UPVOTES:
+					return previous.upvotes - current.upvotes;
+
+				case OrderSuggestionBy.MOST_COMMENTS:
+					return current.comments - previous.comments;
+
+				case OrderSuggestionBy.MOST_UPVOTES:
+					return current.upvotes - previous.upvotes;
+			}
+		});
 	}
 }

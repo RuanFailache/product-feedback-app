@@ -1,18 +1,31 @@
 <div class="sidebar">
-	<div></div>
+	<div class="card">
+		<ul class="tag-list">
+			@for (tag of tags; track $index) {
+				<li
+					(click)="onChangeTag(tag)"
+					(keydown.enter)="onChangeTag(tag)"
+					class="tag-item {{ selectedTag === tag ? 'active' : '' }}"
+					tabindex="0"
+				>
+					{{ tag }}
+				</li>
+			}
+		</ul>
+	</div>
 
-	<div>
-		<div>
-			<strong>Roadmap</strong>
-			<span>View</span>
+	<div class="card">
+		<div class="roadmap-header">
+			<strong class="title">Roadmap</strong>
+			<span class="link">View</span>
 		</div>
 
-		<ul>
+		<ul class="roadmap-list">
 			@for (status of statusList; track $index) {
-				<li>
-					<span [ngStyle]="{ color: status.color }"></span>
-					<p>{{ status.label }}</p>
-					<span>{{ status.amount }}</span>
+				<li class="roadmap-item">
+					<span class="decoration" [ngStyle]="{ backgroundColor: status.color }"></span>
+					<p class="label">{{ status.label }}</p>
+					<span class="amount">{{ status.amount }}</span>
 				</li>
 			}
 		</ul>

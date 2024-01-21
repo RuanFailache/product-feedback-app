@@ -1,10 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 
-interface RoadmapListItem {
-	color: string;
-	label: string;
-	amount: number;
-}
+import { RoadmapListItem } from "@modules/feedback/models/roadmap-list-item";
 
 @Component({
 	selector: "app-side-bar",
@@ -12,9 +8,13 @@ interface RoadmapListItem {
 	styleUrl: "./side-bar.component.sass",
 })
 export class SideBarComponent {
-	statusList: RoadmapListItem[] = [
-		{ color: "#F49F85", label: "Planned", amount: 2 },
-		{ color: "#AD1FEA", label: "In-Progress", amount: 3 },
-		{ color: "#62BCFA", label: "Live", amount: 1 },
-	];
+	@Input({ required: true }) selectedTag: string;
+	@Input({ required: true }) statusList: RoadmapListItem[];
+	@Input({ required: true }) tags: string[];
+
+	@Output() changeTag = new EventEmitter<string>();
+
+	onChangeTag(tag: string) {
+		this.changeTag.emit(tag);
+	}
 }

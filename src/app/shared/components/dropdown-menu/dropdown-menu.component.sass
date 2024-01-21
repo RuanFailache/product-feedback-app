@@ -32,6 +32,8 @@
 	box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 0.35)
 	z-index: 1
 
+	animation: open 300ms linear forwards
+
 .option
 	display: flex
 	align-items: center
@@ -52,3 +54,9 @@
 
 	svg-icon
 		color: #AD1FEA
+
+@keyframes open
+	from
+		transform: translateY(-40px)
+	to
+		transform: translateY(0)

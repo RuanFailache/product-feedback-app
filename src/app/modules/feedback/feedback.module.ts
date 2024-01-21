@@ -13,7 +13,6 @@ import { EmptySuggestionsComponent } from "./components/empty-suggestions/empty-
 import { SideBarComponent } from "./components/side-bar/side-bar.component";
 import { SuggestionCardComponent } from "./components/suggestion-card/suggestion-card.component";
 import { FeedbackRoutingModule } from "./feedback-routing.module";
-import { OrderSuggestionByService } from "./services/order-suggestion-by/order-suggestion-by.service";
 
 const Components = [EmptySuggestionsComponent, SuggestionCardComponent, SideBarComponent];
 
@@ -27,7 +26,6 @@ const Pages = [
 
 @NgModule({
 	imports: [CommonModule, FeedbackRoutingModule, SharedModule],
-	providers: [OrderSuggestionByService],
 	declarations: [...Components, ...Pages],
 })
 export class FeedbackModule {}

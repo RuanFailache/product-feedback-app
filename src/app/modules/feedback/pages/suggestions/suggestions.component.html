@@ -10,7 +10,12 @@
 
 	<main class="main">
 		<app-drawer (closeDrawer)="onToggleDrawer()" [isActive]="isDrawerActive">
-			<app-side-bar />
+			<app-side-bar
+				(changeTag)="onChangeSelectedTag($event)"
+				[selectedTag]="selectedTag"
+				[statusList]="statusList"
+				[tags]="tags"
+			/>
 		</app-drawer>
 
 		<div class="form-options">
