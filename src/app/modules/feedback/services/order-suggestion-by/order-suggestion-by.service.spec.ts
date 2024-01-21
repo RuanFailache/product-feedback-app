@@ -1,4 +1,4 @@
-import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
+import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 
 import { OrderSuggestionBy, OrderSuggestionByService } from "./order-suggestion-by.service";
 

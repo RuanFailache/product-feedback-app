@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
+import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 
 @Component({
 	selector: "app-suggestion-card",

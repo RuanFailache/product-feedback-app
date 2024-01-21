@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
-import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
+import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 
 export const OrderSuggestionBy = {
 	LEAST_COMMENTS: "Least Comments",
