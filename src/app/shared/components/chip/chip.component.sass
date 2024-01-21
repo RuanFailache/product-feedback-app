@@ -1,0 +1,36 @@
+@mixin chip-colors($is-active)
+	@if $is-active
+		color: #FFFFFF
+		background: #4661E6
+
+		svg-icon
+			color: currentColor
+
+	@else
+		color: #3A4374
+		background: #F2F4FF
+
+		svg-icon
+			color: #4661E6
+
+		&:hover
+			background: #CFD7FF
+
+.chip
+	display: flex
+	align-items: center
+	gap: 8px
+
+	padding: 4px 16px
+	border-radius: 10px
+	cursor: pointer
+
+	font-size: 13px
+	line-height: 1.5
+	font-weight: 700
+	letter-spacing: -0.181px
+
+	@include chip-colors(false)
+
+	&.active
+		@include chip-colors(true)

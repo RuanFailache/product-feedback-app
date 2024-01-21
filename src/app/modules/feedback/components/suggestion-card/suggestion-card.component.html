@@ -6,10 +6,10 @@
 	</div>
 
 	<div class="footer">
-		<div (click)="onUpvote()" (keydown.enter)="onUpvote()" class="chip {{ isActive ? 'active' : '' }}" tabindex="0">
+		<app-chip (toggle)="onUpvote()" [isActive]="isActive">
 			<svg-icon key="chevron-up" size="xs"></svg-icon>
 			<span>{{ data.upvotes }}</span>
-		</div>
+		</app-chip>
 
 		<div class="comments">
 			<svg-icon key="comment"></svg-icon>
