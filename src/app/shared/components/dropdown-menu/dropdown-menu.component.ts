@@ -39,4 +39,8 @@ export class DropdownMenuComponent<T> implements OnInit {
 		this.selectOption.emit(option.value);
 		this.onToggle();
 	}
+
+	onClickOutside() {
+		if (this.isActive) this.isActive = false;
+	}
 }

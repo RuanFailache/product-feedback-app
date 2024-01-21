@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div (appClickOutside)="onClickOutside()" class="wrapper">
 	<div (click)="onToggle()" (keydown.enter)="onToggle()" class="label" tabindex="0">
 		@if (label) {
 			<span>{{ label }} : </span>
