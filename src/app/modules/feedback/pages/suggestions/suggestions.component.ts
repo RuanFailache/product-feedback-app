@@ -15,7 +15,7 @@ import {
 	styleUrl: "./suggestions.component.sass",
 })
 export class SuggestionsComponent implements OnInit {
-	mockedCards: SuggestionCard[] = new Array(8).fill("").map(() => ({
+	mockedCards: SuggestionCard[] = new Array(0).fill("").map(() => ({
 		title: "Add tags for solutions",
 		description: "Easier to search for solutions based on a specific stack",
 		tag: "Enhancement",
@@ -24,6 +24,8 @@ export class SuggestionsComponent implements OnInit {
 	}));
 
 	orderBy: ValueOfOrderSuggestionBy;
+
+	isDrawerActive = false;
 
 	constructor(private orderSuggestionsByService: OrderSuggestionByService) {}
 
@@ -46,5 +48,9 @@ export class SuggestionsComponent implements OnInit {
 
 	onChangeSuggestionsOrderBy(orderBy: ValueOfOrderSuggestionBy) {
 		this.orderSuggestionsByService.setOrderBy(orderBy);
+	}
+
+	onToggleDrawer() {
+		this.isDrawerActive = !this.isDrawerActive;
 	}
 }

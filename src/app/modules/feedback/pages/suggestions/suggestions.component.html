@@ -5,29 +5,35 @@
 			<span class="small">Feedback Board</span>
 		</div>
 
-		<svg-icon key="menu" size="lg"></svg-icon>
+		<svg-icon (click)="onToggleDrawer()" [key]="isDrawerActive ? 'close' : 'menu'" size="lg" />
 	</header>
 
-	<div class="form-options">
-		<app-dropdown-menu
-			(selectOption)="onChangeSuggestionsOrderBy($event)"
-			[options]="orderOptions"
-			[value]="orderBy"
-			label="Sort by"
-		></app-dropdown-menu>
+	<main class="main">
+		<app-drawer (closeDrawer)="onToggleDrawer()" [isActive]="isDrawerActive">
+			<app-side-bar />
+		</app-drawer>
 
-		<app-button>+ Add Feedback</app-button>
-	</div>
+		<div class="form-options">
+			<app-dropdown-menu
+				(selectOption)="onChangeSuggestionsOrderBy($event)"
+				[options]="orderOptions"
+				[value]="orderBy"
+				label="Sort by"
+			></app-dropdown-menu>
 
-	<div class="content">
-		@if (cards.length > 0) {
-			<div class="cards">
-				@for (card of cards; track $index) {
-					<app-suggestion-card [data]="card" />
-				}
-			</div>
-		} @else {
-			<app-empty-suggestions />
-		}
-	</div>
+			<app-button>+ Add Feedback</app-button>
+		</div>
+
+		<div class="content">
+			@if (cards.length > 0) {
+				<div class="cards">
+					@for (card of cards; track $index) {
+						<app-suggestion-card [data]="card" />
+					}
+				</div>
+			} @else {
+				<app-empty-suggestions />
+			}
+		</div>
+	</main>
 </div>

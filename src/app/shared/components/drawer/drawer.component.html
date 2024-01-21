@@ -1,0 +1,8 @@
+@if (isActive) {
+	<div class="wrapper">
+		<div (click)="onCloseDrawer()" (keydown.escape)="onCloseDrawer()" class="overlay" tabindex="0"></div>
+		<div class="drawer">
+			<ng-content />
+		</div>
+	</div>
+}

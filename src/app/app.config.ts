@@ -4,7 +4,6 @@ import { provideSvgIconsConfig } from "@ngneat/svg-icon";
 
 import { routes } from "./app.routes";
 import { baseIcons } from "./svg/base";
-import { illustrationsIcons } from "./svg/illustrations";
 
 export const appConfig: ApplicationConfig = {
 	providers: [
@@ -20,7 +19,7 @@ export const appConfig: ApplicationConfig = {
 				xxl: "32px",
 			},
 			defaultSize: "md",
-			icons: [...baseIcons, ...illustrationsIcons],
+			icons: baseIcons,
 		}),
 	],
 };

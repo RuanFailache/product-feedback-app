@@ -1,0 +1,20 @@
+<div class="sidebar">
+	<div></div>
+
+	<div>
+		<div>
+			<strong>Roadmap</strong>
+			<span>View</span>
+		</div>
+
+		<ul>
+			@for (status of statusList; track $index) {
+				<li>
+					<span [ngStyle]="{ color: status.color }"></span>
+					<p>{{ status.label }}</p>
+					<span>{{ status.amount }}</span>
+				</li>
+			}
+		</ul>
+	</div>
+</div>
