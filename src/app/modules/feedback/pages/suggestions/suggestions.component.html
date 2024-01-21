@@ -24,8 +24,7 @@
 				[options]="orderOptions"
 				[value]="orderBy"
 				label="Sort by"
-			></app-dropdown-menu>
-
+			/>
 			<app-button>+ Add Feedback</app-button>
 		</div>
 
@@ -33,7 +32,7 @@
 			@if (cards.length > 0) {
 				<div class="cards">
 					@for (card of cards; track $index) {
-						<app-suggestion-card [data]="card" />
+						<app-suggestion-card [data]="card" (upvote)="onUpvote(card, $event)" />
 					}
 				</div>
 			} @else {

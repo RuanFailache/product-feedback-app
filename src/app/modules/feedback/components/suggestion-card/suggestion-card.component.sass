@@ -47,6 +47,7 @@
 
 	padding: 4px 16px
 	border-radius: 10px
+	cursor: pointer
 
 	font-size: 13px
 	line-height: 1.5
@@ -58,6 +59,13 @@
 
 	svg-icon
 		color: #4661E6
+
+	&.active
+		color: #FFFFFF
+		background: #4661E6
+
+		svg-icon
+			color: currentColor
 
 .comments
 	display: flex

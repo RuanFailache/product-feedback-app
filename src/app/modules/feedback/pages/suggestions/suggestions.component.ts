@@ -27,7 +27,7 @@ export class SuggestionsComponent {
 
 	mockedTags: string[] = ["UI", "UX", "Enhancement", "Bug", "Feature"];
 
-	mockedCards: SuggestionCard[] = new Array(200).fill("").map(() => ({
+	mockedCards: SuggestionCard[] = new Array(10).fill("").map(() => ({
 		title: "Add tags for solutions",
 		description: "Easier to search for solutions based on a specific stack",
 		tag: this.mockedTags[randomInt(5)],
@@ -67,6 +67,11 @@ export class SuggestionsComponent {
 
 	onChangeSelectedTag(tag: string) {
 		this.selectedTag = tag;
+	}
+
+	onUpvote(suggestion: SuggestionCard, isActive: boolean) {
+		if (isActive) suggestion.upvotes++;
+		else suggestion.upvotes--;
 	}
 
 	#filterSuggestionsByTag(suggestions: SuggestionCard[]) {
