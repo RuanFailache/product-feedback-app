@@ -1,23 +1,25 @@
+@import "variables"
+
 .wrapper
 	display: flex
 	flex-direction: column
 	align-items: center
 	justify-content: center
 	text-align: center
-	gap: 24px
+	gap: $grid-xl
 
 	height: 100%
-	padding: 24px
-	border-radius: 10px
-	background: #ffffff
+	padding: $grid-xl
+	border-radius: $border-radius
+	background: $surface-color
 
 	.title
 		font-size: 18px
 		font-weight: 700
 		letter-spacing: -0.25px
-		color: #3A4374
+		color: $text-color-1
 
 	.description
 		font-size: 13px
 		line-height: 1.5
-		color: #647196
+		color: $text-color-2

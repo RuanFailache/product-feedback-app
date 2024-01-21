@@ -1,16 +1,17 @@
+@import "variables"
+
 .wrapper
 	position: relative
 
 .label
 	font-size: 14px
 	line-height: normal
-	color: #F2F4FE
-	cursor: pointer
+	color: $on-brand-color-1
 
 .value-wrapper
 	display: inline-flex
 	align-items: center
-	gap: 8px
+	gap: $grid-xs
 
 	.value
 		font-weight: 700
@@ -24,39 +25,34 @@
 
 .dropdown
 	position: absolute
-	top: calc(100% + 16px)
+	top: calc(100% + $grid-md)
 
 	width: 255px
-	border-radius: 10px
-	background-color: #FFFFFF
-	box-shadow: 0 10px 40px -7px rgba(55, 63, 104, 0.35)
+	border-radius: $border-radius
+	background-color: $surface-color
+	box-shadow: $box-shadow-1
+
 	z-index: 1
 
-	animation: open 300ms linear forwards
+	animation: up-down 300ms linear forwards
 
 .option
 	display: flex
 	align-items: center
 	justify-content: space-between
 
-	padding: 12px 24px
+	padding: $grid-sm $grid-xl
 	cursor: pointer
 
 	font-size: 16px
 	line-height: normal
-	color: #647196
+	color: $text-color-2
 
 	& + &
-		border-top: solid 1px rgba(58, 67, 116, .15)
+		border-top: solid 1px $divider-color
 
 	&:hover
-		color: #AD1FEA
+		color: $brand-color-1
 
 	svg-icon
-		color: #AD1FEA
-
-@keyframes open
-	from
-		transform: translateY(-40px)
-	to
-		transform: translateY(0)
+		color: $brand-color-1

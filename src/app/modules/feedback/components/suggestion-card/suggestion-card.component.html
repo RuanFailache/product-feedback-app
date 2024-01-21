@@ -7,12 +7,12 @@
 
 	<div class="footer">
 		<app-chip (toggle)="onUpvote()" [isActive]="isActive">
-			<svg-icon key="chevron-up" size="xs"></svg-icon>
+			<svg-icon class="upvote-icon {{ isActive ? 'active' : '' }}" key="chevron-up" size="xs" />
 			<span>{{ data.upvotes }}</span>
 		</app-chip>
 
 		<div class="comments">
-			<svg-icon key="comment"></svg-icon>
+			<svg-icon key="comment" />
 			<span>{{ data.comments }}</span>
 		</div>
 	</div>

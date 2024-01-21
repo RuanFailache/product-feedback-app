@@ -1,68 +1,70 @@
+@import "variables"
+
 .sidebar
 	display: flex
 	flex-direction: column
-	gap: 16px
-	padding: 24px
+	gap: $grid-md
+	padding: $grid-xl
 
 .card
-	padding: 16px 24px
-	border-radius: 10px
-	background: #FFFFFF
+	padding: $grid-md $grid-xl
+	border-radius: $surface-color
+	background: $surface-color
 
 .tag-list
 	display: flex
 	flex-wrap: wrap
-	gap: 8px
+	gap: $grid-xs
 
 	.tag-item
-		padding: 4px 16px
-		border-radius: 10px
+		padding: $grid-xxs $grid-md
+		border-radius: $border-radius
 
 		font-size: 13px
 		font-weight: 600
 		line-height: normal
 
-		color: #4661E6
-		background-color: #F2F4FF
+		color: $brand-color-2
+		background-color: $on-brand-color-2
 
 		&.active
-			color: #FFFFFF
-			background-color: #4661E6
+			color: $on-brand-color-1
+			background-color: $brand-color-2
 
 .roadmap-header
 	display: flex
 	align-items: center
 	justify-content: space-between
-	gap: 16px
+	gap: $grid-md
 
 	.title
 		font-size: 16px
 		font-weight: 700
 		line-height: normal
-		color: #647196
+		color: $text-color-2
 
 	.link
 		font-size: 13px
 		font-weight: 600
 		line-height: normal
 		text-decoration-line: underline
-		color: #4661E6
+		color: $brand-color-2
 
 .roadmap-list
 	display: flex
 	flex-direction: column
-	gap: 8px
-	margin-top: 24px
+	gap: $grid-xs
+	margin-top: $grid-xl
 
 .roadmap-item
 	display: flex
 	align-items: center
-	gap: 16px
+	gap: $grid-md
 
 	.decoration
 		display: block
-		width: 8px
-		height: 8px
+		width: $grid-xs
+		height: $grid-xs
 		border-radius: 100%
 
 	.label
@@ -71,10 +73,10 @@
 		font-size: 16px
 		font-weight: 400
 		line-height: normal
-		color: #647196
+		color: $text-color-2
 
 	.amount
 		font-size: 16px
 		font-weight: 700
 		line-height: normal
-		color: #647196
+		color: $text-color-2

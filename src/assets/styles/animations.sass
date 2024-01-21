@@ -1,0 +1,30 @@
+@keyframes up-down
+	from
+		transform: translateY(-40px)
+	to
+		transform: translateY(0)
+
+@keyframes down-up
+	from
+		transform: translateY(40px)
+	to
+		transform: translateY(0)
+
+@keyframes right-left
+	from
+		transform: translateX(40px)
+	to
+		transform: translateX(0)
+
+@keyframes left-right
+	from
+		transform: translateX(-40px)
+	to
+		transform: translateX(0)
+
+@mixin animate-background-color($color)
+	@keyframes appear
+		from
+			background: transparent
+		to
+			background-color: $color

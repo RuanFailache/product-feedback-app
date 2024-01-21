@@ -1,3 +1,8 @@
+@import "animations"
+@import "variables"
+
+@include animate-background-color(#00000088)
+
 .wrapper
 	height: 100%
 	width: 100%
@@ -6,7 +11,6 @@
 	position: absolute
 	height: 100%
 	width: 100%
-	background-color: #00000088
 	animation: appear 200ms linear forwards
 
 .drawer
@@ -16,21 +20,8 @@
 
 	width: 70%
 	height: 100%
-	background-color: #F7F8FD
+	background-color: $background-color
 
 	z-index: 1
 
-	animation: slide 400ms linear forwards
-
-
-@keyframes appear
-	from
-		background: transparent
-	to
-		background-color: #00000088
-
-@keyframes slide
-	from
-		transform: translateX(40px)
-	to
-		transform: translateX(0)
+	animation: right-left 400ms linear forwards
