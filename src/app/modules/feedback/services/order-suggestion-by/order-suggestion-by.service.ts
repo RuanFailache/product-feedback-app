@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
-import { ValueOf } from "@shared/types/value-of";
-
 import { SuggestionCard } from "@modules/feedback/models/SuggestionCard";
 
 export const OrderSuggestionBy = {
