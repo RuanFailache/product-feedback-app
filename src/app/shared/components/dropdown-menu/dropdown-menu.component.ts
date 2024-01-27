@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output, signal, WritableSignal } from "@angular/core";
 
 import { DropdownItem } from "@shared/models/dropdown-item";
 
@@ -15,8 +15,17 @@ export class DropdownMenuComponent<T> implements OnInit {
 
 	@Output() selectOption = new EventEmitter<T>();
 
-	isActive = false;
-	selectedOption: DropdownItem<T>;
+	#selectedOption: WritableSignal<DropdownItem<T> | null> = signal(null);
+
+	#isActive: WritableSignal<boolean> = signal(false);
+
+	get selectedOption() {
+		return this.#selectedOption();
+	}
+
+	get isActive() {
+		return this.#isActive();
+	}
 
 	get selectedOptionText(): string {
 		return this.selectedOption?.label || this.placeholder;
@@ -25,22 +34,22 @@ export class DropdownMenuComponent<T> implements OnInit {
 	ngOnInit() {
 		if (this.value) {
 			this.options.forEach((option) => {
-				if (this.value === option.value) this.selectedOption = option;
+				if (this.value === option.value) this.#selectedOption.set(option);
 			});
 		}
 	}
 
 	onToggle() {
-		this.isActive = !this.isActive;
+		this.#isActive.update((value) => !value);
 	}
 
 	onSelectOption(option: DropdownItem<T>): void {
-		this.selectedOption = option;
+		this.#selectedOption.set(option);
 		this.selectOption.emit(option.value);
 		this.onToggle();
 	}
 
 	onClickOutside() {
-		if (this.isActive) this.isActive = false;
+		if (this.isActive) this.#isActive.set(false);
 	}
 }

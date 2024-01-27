@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, signal, WritableSignal } from "@angular/core";
 
 import { DropdownItem } from "@shared/models/dropdown-item";
 
@@ -35,11 +35,23 @@ export class SuggestionsComponent {
 		comments: randomInt(100),
 	}));
 
-	orderBy: ValueOf<typeof OrderSuggestionBy> = OrderSuggestionBy.MOST_UPVOTES;
+	#orderBy: WritableSignal<ValueOf<typeof OrderSuggestionBy>> = signal(OrderSuggestionBy.MOST_UPVOTES);
 
-	isDrawerActive: boolean = false;
+	#isDrawerActive: WritableSignal<boolean> = signal(false);
 
-	selectedTag: string = ALL_SUGGESTIONS_FILTERED;
+	#selectedTag: WritableSignal<string> = signal(ALL_SUGGESTIONS_FILTERED);
+
+	get orderBy(): ValueOf<typeof OrderSuggestionBy> {
+		return this.#orderBy();
+	}
+
+	get isDrawerActive(): boolean {
+		return this.#isDrawerActive();
+	}
+
+	get selectedTag(): string {
+		return this.#selectedTag();
+	}
 
 	get orderOptions(): DropdownItem<ValueOf<typeof OrderSuggestionBy>>[] {
 		return Object.values(OrderSuggestionBy).map((value) => ({
@@ -58,15 +70,15 @@ export class SuggestionsComponent {
 	}
 
 	onChangeSuggestionsOrderBy(orderBy: ValueOf<typeof OrderSuggestionBy>) {
-		this.orderBy = orderBy;
+		this.#orderBy.set(orderBy);
 	}
 
 	onToggleDrawer() {
-		this.isDrawerActive = !this.isDrawerActive;
+		this.#isDrawerActive.update((value) => !value);
 	}
 
 	onChangeSelectedTag(tag: string) {
-		this.selectedTag = tag;
+		this.#selectedTag.set(tag);
 	}
 
 	onUpvote(suggestion: SuggestionCard, isActive: boolean) {

@@ -3,6 +3,8 @@
 
 @include animate-background-color(#00000088)
 
+$z-index: 1000
+
 .wrapper
 	height: 100%
 	width: 100%
@@ -12,6 +14,7 @@
 	height: 100%
 	width: 100%
 	animation: appear 200ms linear forwards
+	z-index: $z-index
 
 .drawer
 	position: absolute
@@ -22,6 +25,6 @@
 	height: 100%
 	background-color: $background-color
 
-	z-index: 1
+	z-index: $z-index
 
 	animation: right-left 400ms linear forwards

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output, signal } from "@angular/core";
 
 import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 
@@ -12,10 +12,14 @@ export class SuggestionCardComponent {
 
 	@Output() upvote = new EventEmitter<boolean>();
 
-	isActive = false;
+	#isActive = signal(false);
+
+	get isActive(): boolean {
+		return this.#isActive();
+	}
 
 	onUpvote() {
-		this.isActive = !this.isActive;
+		this.#isActive.update((value) => !value);
 		this.upvote.emit(this.isActive);
 	}
 }
