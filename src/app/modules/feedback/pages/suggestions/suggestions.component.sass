@@ -97,6 +97,18 @@ $header-width: 255px
 	color: $on-brand-color-1
 	background: $brand-color-3
 
+	.amount
+		display: flex
+		align-items: center
+		gap: $grid-md
+
+		font-size: 18px
+		font-weight: 700
+		letter-spacing: -0.25px
+
+		@media (max-width: $breakpoint-tablet)
+			display: none
+
 	@media (min-width: $breakpoint-desktop)
 		border-radius: $border-radius
 

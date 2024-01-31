@@ -39,12 +39,18 @@
 			</app-drawer>
 
 			<div class="form-options">
+				<div class="amount">
+					<svg-icon key="bulb" size="lg" />
+					<span>{{ cards.length }} Suggestions</span>
+				</div>
+
 				<app-dropdown-menu
 					(selectOption)="onChangeSuggestionsOrderBy($event)"
 					[options]="orderOptions"
 					[value]="orderBy"
 					label="Sort by"
 				/>
+
 				<app-button>+ Add Feedback</app-button>
 			</div>
 
