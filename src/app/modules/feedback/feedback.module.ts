@@ -10,11 +10,12 @@ import { RoadmapComponent } from "@modules/feedback/pages/roadmap/roadmap.compon
 import { SuggestionsComponent } from "@modules/feedback/pages/suggestions/suggestions.component";
 
 import { EmptySuggestionsComponent } from "./components/empty-suggestions/empty-suggestions.component";
-import { SideBarComponent } from "./components/side-bar/side-bar.component";
+import { RoadmapCardComponent } from "./components/roadmap-card/roadmap-card.component";
 import { SuggestionCardComponent } from "./components/suggestion-card/suggestion-card.component";
+import { TagListCardComponent } from "./components/tag-list-card/tag-list-card.component";
 import { FeedbackRoutingModule } from "./feedback-routing.module";
 
-const Components = [EmptySuggestionsComponent, SuggestionCardComponent, SideBarComponent];
+const Components = [EmptySuggestionsComponent, SuggestionCardComponent, RoadmapCardComponent, TagListCardComponent];
 
 const Pages = [
 	SuggestionsComponent,

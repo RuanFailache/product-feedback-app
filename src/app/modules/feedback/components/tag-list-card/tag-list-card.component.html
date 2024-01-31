@@ -1,0 +1,14 @@
+<div class="card">
+	<ul class="list">
+		@for (tag of tags; track $index) {
+			<li
+				(click)="changeTag.emit(tag)"
+				(keydown.enter)="changeTag.emit(tag)"
+				class="item {{ selectedTag === tag ? 'active' : '' }}"
+				tabindex="0"
+			>
+				{{ tag }}
+			</li>
+		}
+	</ul>
+</div>

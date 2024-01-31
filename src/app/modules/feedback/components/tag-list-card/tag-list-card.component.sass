@@ -1,0 +1,27 @@
+@import "variables"
+
+@mixin get-item-colors($is-active)
+	@if ($is-active)
+		color: $on-brand-color-1
+		background-color: $brand-color-2
+	@else
+		color: $brand-color-2
+		background-color: $on-brand-color-2
+
+.list
+	display: flex
+	flex-wrap: wrap
+	gap: $grid-xs
+
+.item
+	padding: $grid-xxs $grid-md
+	border-radius: $border-radius
+
+	font-size: 13px
+	font-weight: 600
+	line-height: normal
+
+	@include get-item-colors(false)
+
+	&.active
+		@include get-item-colors(true)

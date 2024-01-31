@@ -1,0 +1,16 @@
+<div class="card">
+	<div class="header">
+		<strong class="title">Roadmap</strong>
+		<span class="link">View</span>
+	</div>
+
+	<ul class="list">
+		@for (status of statusList; track $index) {
+			<li class="item">
+				<span class="decoration" [ngStyle]="{ backgroundColor: status.color }"></span>
+				<p class="label">{{ status.label }}</p>
+				<span class="amount">{{ status.amount }}</span>
+			</li>
+		}
+	</ul>
+</div>

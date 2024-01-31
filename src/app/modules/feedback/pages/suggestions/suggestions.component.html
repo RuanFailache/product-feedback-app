@@ -1,43 +1,64 @@
 <div class="page">
-	<header class="header">
-		<div>
-			<strong class="title">Frontend Mentor</strong>
-			<span class="small">Feedback Board</span>
-		</div>
+	<div class="page-content">
+		<header class="header-wrapper">
+			<div class="header">
+				<div>
+					<strong class="title">Frontend Mentor</strong>
+					<span class="small">Feedback Board</span>
+				</div>
 
-		<svg-icon (click)="onToggleDrawer()" [key]="isDrawerActive ? 'close' : 'menu'" size="lg" />
-	</header>
+				<svg-icon
+					(click)="onToggleDrawer()"
+					[key]="isDrawerActive ? 'close' : 'menu'"
+					class="mobile"
+					size="lg"
+				/>
+			</div>
 
-	<main class="main">
-		<app-drawer (closeDrawer)="onToggleDrawer()" [isActive]="isDrawerActive">
-			<app-side-bar
+			<app-tag-list-card
 				(changeTag)="onChangeSelectedTag($event)"
 				[selectedTag]="selectedTag"
-				[statusList]="statusList"
 				[tags]="tags"
+				class="not-mobile"
 			/>
-		</app-drawer>
 
-		<div class="form-options">
-			<app-dropdown-menu
-				(selectOption)="onChangeSuggestionsOrderBy($event)"
-				[options]="orderOptions"
-				[value]="orderBy"
-				label="Sort by"
-			/>
-			<app-button>+ Add Feedback</app-button>
-		</div>
+			<app-roadmap-card [statusList]="statusList" class="not-mobile" />
+		</header>
 
-		<div class="content">
-			@if (cards.length > 0) {
-				<div class="cards">
-					@for (card of cards; track $index) {
-						<app-suggestion-card [data]="card" (upvote)="onUpvote(card, $event)" />
-					}
+		<main class="main">
+			<app-drawer (closeDrawer)="onToggleDrawer()" [isActive]="isDrawerActive" class="mobile">
+				<div class="drawer-wrapper">
+					<app-tag-list-card
+						(changeTag)="onChangeSelectedTag($event)"
+						[selectedTag]="selectedTag"
+						[tags]="tags"
+					/>
+
+					<app-roadmap-card [statusList]="statusList" />
 				</div>
-			} @else {
-				<app-empty-suggestions />
-			}
-		</div>
-	</main>
+			</app-drawer>
+
+			<div class="form-options">
+				<app-dropdown-menu
+					(selectOption)="onChangeSuggestionsOrderBy($event)"
+					[options]="orderOptions"
+					[value]="orderBy"
+					label="Sort by"
+				/>
+				<app-button>+ Add Feedback</app-button>
+			</div>
+
+			<div class="content">
+				@if (cards.length > 0) {
+					<div class="cards">
+						@for (card of cards; track $index) {
+							<app-suggestion-card [data]="card" (upvote)="onUpvote(card, $event)" />
+						}
+					</div>
+				} @else {
+					<app-empty-suggestions />
+				}
+			</div>
+		</main>
+	</div>
 </div>
