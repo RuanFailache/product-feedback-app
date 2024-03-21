@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from "@angular/core";
+import { booleanAttribute, Component, EventEmitter, Input, Output, signal } from "@angular/core";
 
 import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 
@@ -8,7 +8,8 @@ import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 	styleUrl: "./suggestion-card.component.sass",
 })
 export class SuggestionCardComponent {
-	@Input() data: SuggestionCard;
+	@Input({ required: true }) data: SuggestionCard;
+	@Input({ transform: booleanAttribute }) clickable: boolean;
 
 	@Output() upvote = new EventEmitter<boolean>();
 

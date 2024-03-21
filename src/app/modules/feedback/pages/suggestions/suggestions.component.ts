@@ -7,10 +7,6 @@ import { OrderSuggestionBy } from "@modules/feedback/constants/order-suggestion-
 import { RoadmapListItem } from "../../models/roadmap-list-item";
 import { SuggestionCard } from "../../models/suggestion-card";
 
-function randomInt(number: number) {
-	return Math.floor(Math.random() * number);
-}
-
 const ALL_SUGGESTIONS_FILTERED = "All";
 
 @Component({
@@ -31,9 +27,9 @@ export class SuggestionsComponent {
 		id: index + 1,
 		title: "Add tags for solutions",
 		description: "Easier to search for solutions based on a specific stack",
-		tag: this.mockedTags[randomInt(5)],
-		upvotes: randomInt(1000),
-		comments: randomInt(100),
+		tag: this.mockedTags[Math.floor(Math.random() * 5)],
+		upvotes: Math.floor(Math.random() * 1000),
+		comments: Math.floor(Math.random() * 100),
 	}));
 
 	#orderBy: WritableSignal<ValueOf<typeof OrderSuggestionBy>> = signal(OrderSuggestionBy.MOST_UPVOTES);

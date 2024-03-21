@@ -1,1 +1,23 @@
-<p>feedback-detail works!</p>
+<div class="page">
+	<div class="page-content">
+		<header class="spaced-items">
+			<button>Go Back</button>
+			<app-button>Edit Feedback</app-button>
+		</header>
+
+		<app-suggestion-card (upvote)="onUpvote($event)" [data]="mockedCard"></app-suggestion-card>
+
+		<div class="card">
+			<strong>{{ mockedCard.comments }} Comments</strong>
+		</div>
+
+		<div class="post-comment-card card">
+			<strong class="title">Add Comment</strong>
+			<textarea class="textarea" maxlength="250" placeholder="Type your comment here"></textarea>
+			<footer class="spaced-items">
+				<span class="characters-left">250 Characters left</span>
+				<app-button>Post Comment</app-button>
+			</footer>
+		</div>
+	</div>
+</div>

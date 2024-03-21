@@ -1,0 +1,49 @@
+@import "variables"
+
+.page-content
+	position: relative
+	display: flex
+	flex-direction: column
+
+	@media (max-width: $breakpoint-desktop)
+		height: 100%
+
+	@media (min-width: $breakpoint-desktop)
+		gap: $grid-xl
+
+		width: $breakpoint-desktop
+		height: 100%
+		margin: 0 auto
+		padding: 80px 0
+
+.spaced-items
+	display: flex
+	align-items: center
+	justify-content: space-between
+	width: 100%
+
+.card
+	flex: 0
+
+.post-comment-card
+	.title
+		font-size: 18px
+		font-weight: 700
+		color: $text-color-1
+
+	.characters-left
+		font-size: 15px
+		color: $text-color-2
+
+	.textarea
+		display: block
+
+		width: 100%
+		margin: $grid-xl 0 $grid-md
+		padding: $grid-md $grid-xl
+		border: none
+		border-radius: $border-radius
+		background-color: $background-color
+
+		outline: none
+		resize: none

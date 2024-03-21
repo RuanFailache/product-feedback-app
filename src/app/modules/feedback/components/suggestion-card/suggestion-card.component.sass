@@ -16,25 +16,25 @@
 	padding: $grid-xl - 1px
 	border-radius: $border-radius
 	background: $surface-color
-	cursor: pointer
 	border: solid 1px transparent
 
-	&:hover
+	&.clickable:hover
+		cursor: pointer
 		border: solid 1px $brand-color-1
 
 .content
 	gap: $grid-xs
 
-.title, .description
-	font-size: 13px
-	line-height: 1.5
-
 .title
+	font-size: 18px
+	line-height: 1.5
 	font-weight: 700
 	letter-spacing: -0.181px
 	color: $text-color-1
 
 .description
+	font-size: 16px
+	line-height: 1.5
 	color: $text-color-2
 
 .badge
