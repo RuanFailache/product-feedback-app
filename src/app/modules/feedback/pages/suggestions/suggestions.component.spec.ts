@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 
-import { OrderSuggestionBy } from "@modules/feedback/enums/order-suggestion-by";
+import { OrderSuggestionBy } from "@modules/feedback/constants/order-suggestion-by";
 import { SuggestionCard } from "@modules/feedback/models/suggestion-card";
 import { SuggestionsComponent } from "@modules/feedback/pages/suggestions/suggestions.component";
 

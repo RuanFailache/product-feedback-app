@@ -2,7 +2,7 @@ import { Component, signal, WritableSignal } from "@angular/core";
 
 import { DropdownItem } from "@shared/models/dropdown-item";
 
-import { OrderSuggestionBy } from "@modules/feedback/enums/order-suggestion-by";
+import { OrderSuggestionBy } from "@modules/feedback/constants/order-suggestion-by";
 
 import { RoadmapListItem } from "../../models/roadmap-list-item";
 import { SuggestionCard } from "../../models/suggestion-card";
