@@ -3,12 +3,17 @@ import { Routes } from "@angular/router";
 export const routes: Routes = [
 	{
 		path: "auth",
-		loadChildren: () =>
-			import("./modules/authentication/authentication.module").then((m) => m.AuthenticationModule),
+		loadChildren: async () => {
+			const module = await import("./modules/authentication/authentication.module");
+			return module.AuthenticationModule;
+		}
 	},
 	{
 		path: "feedback",
-		loadChildren: () => import("./modules/feedback/feedback.module").then((m) => m.FeedbackModule),
+		loadChildren: async () => {
+			const module = await import("./modules/feedback/feedback.module");
+			return module.FeedbackModule;
+		},
 	},
 	// {
 	// 	path: "**",

@@ -162,6 +162,7 @@
 			"@cypress/schematic",
 			"@angular-eslint/schematics",
 			"@schematics/angular"
-		]
+    ],
+    "analytics": "659ec303-cc84-4e49-8124-886d218bd5c2"
 	}
 }
