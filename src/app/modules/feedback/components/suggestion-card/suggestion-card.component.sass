@@ -13,9 +13,14 @@
 
 .card
 	gap: 16px
-	padding: $grid-xl
+	padding: $grid-xl - 1px
 	border-radius: $border-radius
 	background: $surface-color
+	cursor: pointer
+	border: solid 1px transparent
+
+	&:hover
+		border: solid 1px $brand-color-1
 
 .content
 	gap: $grid-xs

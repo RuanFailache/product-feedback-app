@@ -10,7 +10,8 @@ export class ChipComponent {
 
 	@Output() toggle = new EventEmitter<never>();
 
-	onClick() {
+	onClick(event: Event) {
+		event.stopPropagation();
 		this.toggle.emit();
 	}
 }

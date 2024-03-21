@@ -60,7 +60,11 @@
 				@if (cards.length > 0) {
 					<div class="cards">
 						@for (card of cards; track $index) {
-							<app-suggestion-card [data]="card" (upvote)="onUpvote(card, $event)" />
+							<app-suggestion-card
+								[data]="card"
+								(upvote)="onUpvote(card, $event)"
+								[routerLink]="['details', card.id]"
+							/>
 						}
 					</div>
 				} @else {

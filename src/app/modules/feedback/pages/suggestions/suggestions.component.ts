@@ -27,7 +27,8 @@ export class SuggestionsComponent {
 
 	mockedTags: string[] = ["UI", "UX", "Enhancement", "Bug", "Feature"];
 
-	mockedCards: SuggestionCard[] = new Array(10).fill("").map(() => ({
+	mockedCards: SuggestionCard[] = new Array(10).fill("").map((_, index) => ({
+		id: index + 1,
 		title: "Add tags for solutions",
 		description: "Easier to search for solutions based on a specific stack",
 		tag: this.mockedTags[randomInt(5)],

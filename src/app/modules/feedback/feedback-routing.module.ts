@@ -13,7 +13,7 @@ const routes: Route[] = [
 		component: SuggestionsComponent,
 	},
 	{
-		path: "details",
+		path: "details/:id",
 		component: FeedbackDetailComponent,
 	},
 	{
